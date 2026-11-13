@@ -1,8 +1,20 @@
 # API Test Automation (Python + Pytest)
 
+[![API tests](https://github.com/piyush3589/qa-api-testing/actions/workflows/ci.yml/badge.svg)](https://github.com/piyush3589/qa-api-testing/actions/workflows/ci.yml)
+
 Automated REST API test suite for the public [JSONPlaceholder](https://jsonplaceholder.typicode.com) API.
 Built to show practical QA automation skills: Pytest, `requests`, parametrized tests, JSON-schema
 contract checks, negative testing, an offline mock server and CI with GitHub Actions.
+
+## Tech stack
+
+| | |
+|---|---|
+| Language | Python 3 (CI runs 3.12) |
+| Test framework | Pytest, requests, jsonschema, pytest-html |
+| Techniques | Parametrized tests, JSON Schema contract checks, negative testing |
+| Test target | JSONPlaceholder (live) or the bundled offline mock server |
+| CI | GitHub Actions: runs the suite on every push |
 
 ## What is covered
 
@@ -28,6 +40,9 @@ mock_server/server.py# offline stand-in for the API (stdlib only)
 
 ## Run it
 
+**Prerequisites:** Python 3 and pip. No API key is needed.
+
+
 ```bash
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -48,8 +63,12 @@ pytest -k "posts and not delete"                         # run a subset
   the missing validation on purpose.
 - Add a new endpoint test by adding a function in `tests/` and, if needed, a schema in `schemas.py`.
 
-## Possible next steps
+## Roadmap
 
-- Playwright UI test for a demo site
+- Run the suite against a staging URL through a `BASE_URL` environment variable
 - Allure reports
-- Run the suite against a staging URL via the `BASE_URL` environment variable
+- Tests against an API that validates input and persists writes
+
+## Author
+
+Piyush Raut | [GitHub](https://github.com/piyush3589) | [LinkedIn](https://linkedin.com/in/piyushr30) | piyush318@gmail.com
